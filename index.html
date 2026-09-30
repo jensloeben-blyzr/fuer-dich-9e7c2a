@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9edf2">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="Eine kleine Seite. Eine wichtige Frage. Nur für dich.">
+  <meta property="og:title" content="Nancy, eine kleine Frage …">
+  <meta property="og:description" content="Diese Seite ist nur für dich.">
+  <title>Nancy, eine kleine Frage …</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23cf006c' d='M50 88 12 50C-10 23 24-4 50 24 76-4 110 23 88 50Z'/%3E%3C/svg%3E">
+  <style>
+    :root { color-scheme: light; --ink: #490c27; --pink: #d0006e; --muted: #806b76; --line: #ead7e1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 36px 20px; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(ellipse at 8% 18%, #f4deee 0, transparent 48%), radial-gradient(ellipse at 92% 85%, #f1cfe0 0, transparent 46%), #faf4f6; }
+    body::before { content: ""; position: fixed; inset: 14px; border: 1px solid #ffffff90; border-radius: 22px; pointer-events: none; }
+    .app { width: min(100%, 580px); }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 0 5px 17px; }
+    .brand { display: flex; gap: 9px; align-items: center; font-size: 19px; font-weight: 750; letter-spacing: -.8px; }
+    .heart { color: var(--pink); }
+    .brand .heart { font-size: 27px; }
+    .counter { font-size: 11px; letter-spacing: 2px; color: var(--muted); }
+    .track { height: 3px; border-radius: 4px; background: #e7d4dd; margin-bottom: 19px; overflow: hidden; }
+    .progress { width: 16.666%; height: 100%; background: var(--pink); transition: width .4s ease; }
+    main { position: relative; border: 1px solid #fff; border-radius: 27px; background: #fffafce8; box-shadow: 0 18px 70px #7c234012, 0 2px 8px #7c234007; overflow: hidden; }
+    .step { padding: 56px 44px 42px; min-height: 510px; text-align: center; animation: enter .35s ease both; }
+    [hidden] { display: none !important; }
+    .eyebrow { margin: 0 0 22px; font-size: 10px; font-weight: 750; letter-spacing: 2.2px; text-transform: uppercase; color: #985473; }
+    h1, h2 { margin: 0; font-size: clamp(34px, 6.6vw, 47px); line-height: 1.07; letter-spacing: -2.3px; font-weight: 800; text-wrap: balance; }
+    h1 span { display: block; }
+    .sub { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 20px auto 26px; max-width: 360px; }
+    button, input, a { -webkit-tap-highlight-color: transparent; font: inherit; }
+    button, .button { cursor: pointer; border: 0; min-height: 47px; border-radius: 28px; padding: 13px 27px; font-size: 13px; font-weight: 700; transition: transform .18s, background .18s, box-shadow .18s; }
+    button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #a94083; outline-offset: 4px; }
+    .primary { display: inline-flex; align-items: center; justify-content: center; gap: 13px; min-width: 222px; background: var(--pink); color: white; box-shadow: 0 5px 15px #d0006e21; text-decoration: none; }
+    .primary:hover { background: #b80060; transform: translateY(-2px); box-shadow: 0 7px 20px #d0006e30; }
+    .primary:active { transform: translateY(0); }
+    .primary:disabled { cursor: not-allowed; opacity: .45; transform: none; }
+    .answer-area { position: relative; height: 117px; max-width: 330px; margin: 34px auto 0; }
+    #yes { position: absolute; left: 28px; top: 12px; min-width: 110px; }
+    #no { position: absolute; right: 26px; top: 45px; min-width: 91px; color: #704456; background: #f4eaf0; transition: left .16s, top .16s; }
+    .tiny { font-size: 10px; color: #9b8390; line-height: 1.6; }
+    .back { display: block; min-height: 38px; margin: 18px auto -20px; padding: 8px 12px; color: var(--muted); background: transparent; font-size: 11px; font-weight: 500; }
+    .sticker { display: grid; place-items: center; width: 76px; height: 76px; margin: 0 auto 26px; background: #f7e8ef; border-radius: 20px; font-size: 37px; transform: rotate(-8deg); }
+    .sticker .heart { font-size: 49px; }
+    form { max-width: 340px; margin: 25px auto 0; text-align: left; }
+    label.field { display: block; margin: 17px 0 8px; font-size: 11px; font-weight: 650; }
+    input { width: 100%; min-width: 0; min-height: 49px; padding: 12px 15px; border: 1px solid #eddee6; border-radius: 12px; background: #f7eff3; color: var(--ink); font-size: 16px; }
+    form .primary { display: flex; margin: 24px auto 0; }
+    .error { font-size: 12px; color: #a11f44; line-height: 1.5; margin-bottom: 0; }
+    .foods { border: 0; padding: 0; margin: 26px auto 23px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
+    .foods legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .food { position: relative; cursor: pointer; }
+    .food input { position: absolute; opacity: 0; width: 1px; height: 1px; min-height: 0; }
+    .food span { display: flex; align-items: center; gap: 8px; padding: 16px 13px; min-height: 53px; border-radius: 13px; background: #f4edf1; border: 1.5px solid transparent; font-size: 13px; font-weight: 650; transition: .2s; }
+    .food input:checked + span { border-color: var(--pink); background: #fce6f1; color: #a50055; }
+    .food input:checked + span::after { content: "✓"; margin-left: auto; }
+    .food input:focus-visible + span { outline: 3px solid #a94083; outline-offset: 3px; }
+    .food:hover span { background: #f6e1ec; }
+    .note { font-style: italic; }
+    .receipt { padding: 25px 24px; background: linear-gradient(140deg, #fce5ef, #fffafc 75%); border: 1px solid #edcfdd; border-radius: 16px; text-align: left; box-shadow: 0 8px 23px #7c234009; transform: rotate(-1.5deg); margin: 0 0 31px; }
+    .receipt-top { display: flex; justify-content: space-between; font-size: 9px; font-weight: 800; letter-spacing: 1.6px; margin-bottom: 16px; color: #a6517a; }
+    .receipt h2 { font-size: clamp(27px, 5.8vw, 37px); letter-spacing: -1.7px; }
+    .receipt .caption { font-size: 9px; letter-spacing: 1px; color: var(--muted); margin: 9px 0 23px; }
+    .price-row { display: flex; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid #e9d5df; font-size: 13px; }
+    .price { white-space: nowrap; text-align: right; }
+    .price del { font-size: 11px; color: #a18b96; margin-right: 5px; }
+    .plan { margin: 17px 0; padding: 13px; background: #ffffffa8; border-radius: 9px; font-size: 12px; line-height: 1.8; }
+    .plan { white-space: pre-line; }
+    textarea { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 12px; font: inherit; font-size: 13px; color: var(--ink); background: white; }
+    .receipt .tiny { margin: 18px 0 0; color: #866673; }
+    .receipt-step { padding-top: 47px; }
+    .success h2 { font-size: 42px; }
+    .success .plan { background: #f8ebf1; margin: 24px auto; max-width: 340px; }
+    .secondary { display: block; margin: 13px auto 0; background: transparent; color: #985473; font-size: 12px; }
+    .status { min-height: 20px; margin: 9px 0 0; font-size: 12px; color: #80536a; }
+    footer { text-align: center; margin-top: 22px; font-size: 8px; font-weight: 700; letter-spacing: 2.5px; color: #a0778b; text-transform: uppercase; }
+    .confetti { position: fixed; top: -30px; pointer-events: none; z-index: 5; color: var(--pink); animation: fall 2.6s ease-in forwards; }
+    @keyframes enter { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fall { to { transform: translateY(105vh) rotate(340deg); opacity: 0; } }
+    @media (max-width: 480px) {
+      body { padding: 25px 17px; }
+      body::before { inset: 7px; }
+      .step { padding: 42px 25px 35px; min-height: 490px; }
+      h1, h2 { letter-spacing: -1.8px; }
+      .receipt-step { padding: 38px 20px 35px; }
+      .receipt { padding: 23px 18px; }
+      .eyebrow { font-size: 9px; letter-spacing: 1.8px; }
+      .success h2 { font-size: 36px; }
+      .brand { font-size: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .confetti { display: none; }
+    }
+  </style>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header><div class="brand"><span class="heart" aria-hidden="true">♥</span> DateBloom</div><div class="counter" id="counter" aria-live="polite">1 / 6</div></header>
+    <div class="track" role="progressbar" aria-label="Deine Date-Einladung" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><div class="progress"></div></div>
+    <main>
+      <section class="step" data-step="1" aria-labelledby="title-1">
+        <p class="eyebrow">♥ Eine sehr wichtige Frage</p>
+        <h1 id="title-1" tabindex="-1"><span>Nancy,</span> gehst du mit mir<br>auf ein Date?</h1>
+        <p class="sub">Nur du und ich. Und ein ziemlich guter Abend.</p>
+        <div class="answer-area"><button class="primary" id="yes" data-next="2">JA ✧</button><button id="no">Nein</button></div>
+        <p class="tiny" id="shy">Psst … der Nein-Button ist ein bisschen schüchtern.</p>
+      </section>
+      <section class="step" data-step="2" aria-labelledby="title-2" hidden>
+        <div class="sticker" aria-hidden="true">🥳</div>
+        <h2 id="title-2" tabindex="-1">Moment …<br>du sagst wirklich<br>JA?!</h2>
+        <p class="sub">Okay. Ganz cool bleiben, Jens.<br>Hat offensichtlich nicht geklappt.</p>
+        <button class="primary" data-next="3">Lass uns planen <span aria-hidden="true">→</span></button>
+      </section>
+      <section class="step" data-step="3" aria-labelledby="title-3" hidden>
+        <p class="eyebrow">✧ Zeit nur für uns</p>
+        <h2 id="title-3" tabindex="-1">Und … wann<br>hast du Zeit?</h2>
+        <p class="sub">Such dir einen Tag und eine Uhrzeit aus.</p>
+        <form id="date-form">
+          <label class="field" for="date">Unser Tag</label><input id="date" name="date" type="date" required aria-describedby="date-error">
+          <label class="field" for="time">Unsere Uhrzeit</label><input id="time" name="time" type="time" value="19:00" required aria-describedby="date-error">
+          <p class="error" id="date-error" role="alert" hidden>Unser Date liegt noch vor uns – wähl bitte eine Zeit in der Zukunft.</p>
+          <button class="primary" type="submit">Weiter zum Essen <span aria-hidden="true">→</span></button>
+        </form>
+        <button class="back" data-next="2">← Zurück</button>
+      </section>
+      <section class="step" data-step="4" aria-labelledby="title-4" hidden>
+        <p class="eyebrow">✧ Die wirklich wichtigen Details</p>
+        <h2 id="title-4" tabindex="-1">Worauf hast<br>du Appetit?</h2>
+        <p class="sub">Du suchst aus. Ich freu mich auf dich.</p>
+        <fieldset class="foods"><legend>Wähle dein Essen</legend>
+          <label class="food"><input type="radio" name="food" value="Pizza"><span>🍕 Pizza</span></label>
+          <label class="food"><input type="radio" name="food" value="Sushi"><span>🍣 Sushi</span></label>
+          <label class="food"><input type="radio" name="food" value="Burger"><span>🍔 Burger</span></label>
+          <label class="food"><input type="radio" name="food" value="Pasta"><span>🍝 Pasta</span></label>
+          <label class="food"><input type="radio" name="food" value="Tacos"><span>🌮 Tacos</span></label>
+          <label class="food"><input type="radio" name="food" value="Ramen"><span>🍜 Ramen</span></label>
+        </fieldset>
+        <button class="primary" id="food-next" data-next="5" disabled>Genau darauf <span aria-hidden="true">→</span></button>
+        <button class="back" data-next="3">← Zurück</button>
+      </section>
+      <section class="step" data-step="5" aria-labelledby="title-5" hidden>
+        <div class="sticker" aria-hidden="true"><span class="heart">♥</span></div>
+        <h2 id="title-5" tabindex="-1">Gut, dass du<br>Ja gesagt hast.<br>Ich hol dich ab.</h2>
+        <p class="sub" id="pickup"></p>
+        <p class="sub note">P.S. Andere schreiben einfach eine Nachricht.<br>Ich baue dir eine Website. Ganz normal.</p>
+        <button class="primary" data-next="6">Eine Kleinigkeit noch <span aria-hidden="true">→</span></button>
+        <button class="back" data-next="4">← Zurück</button>
+      </section>
+      <section class="step receipt-step" data-step="6" aria-labelledby="title-6" hidden>
+        <div class="receipt">
+          <div class="receipt-top"><span>DATEBLOOM · NANCY & JENS</span><span aria-hidden="true">♥</span></div>
+          <h2 id="title-6" tabindex="-1">Date-Vertrag™</h2>
+          <p class="caption">TOTAL OFFIZIELLER PAPIERKRAM.</p>
+          <div class="price-row"><span>Ein Date mit mir</span><strong class="price"><del>499 €</del> 1 Lächeln</strong></div>
+          <div class="plan" id="receipt-plan"></div>
+          <p class="tiny">Zahlbar in Lachen, guter Gesellschaft und der Erlaubnis, die Playlist auszusuchen.</p>
+          <p class="tiny">Keine echte Zahlung. Kein echter Vertrag.<br>Nur ein ziemlich ernst gemeintes Date.</p>
+        </div>
+        <button class="primary" id="confirm">Mit einem Lächeln bezahlen ♥</button>
+        <button class="back" data-next="3">← Datum oder Essen ändern</button>
+      </section>
+      <section class="step success" data-step="7" aria-labelledby="title-7" hidden>
+        <div class="sticker" aria-hidden="true"><span class="heart">♥</span></div>
+        <p class="eyebrow">Zahlung: ein Lächeln. Erhalten.</p>
+        <h2 id="title-7" tabindex="-1">Wir haben<br>ein Date, Nancy.</h2>
+        <div class="plan" id="final-plan"></div>
+        <a class="button primary" id="whatsapp" href="https://wa.me/" target="_blank" rel="noopener noreferrer">Jens Bescheid sagen <span aria-hidden="true">↗</span></a>
+        <p class="tiny">Öffnet WhatsApp mit deiner Antwort.<br>Wähle dort Jens und schick sie ab – noch wurde nichts gesendet.</p>
+        <button class="secondary" id="copy">Antwort lieber kopieren</button>
+        <p class="status" id="copy-status" role="status"></p>
+        <textarea id="manual-copy" aria-label="Deine Antwort zum Kopieren" rows="5" readonly hidden></textarea>
+        <button class="back" data-next="3">← Plan ändern</button>
+      </section>
+      <section class="step" data-step="declined" aria-labelledby="title-declined" hidden>
+        <div class="sticker" aria-hidden="true"><span class="heart">♥</span></div>
+        <h2 id="title-declined" tabindex="-1">Kein Druck,<br>Nancy.</h2>
+        <p class="sub">Ein Nein ist natürlich auch okay.<br>Die Einladung steht, falls du es dir anders überlegst.</p>
+        <button class="primary" data-next="1">Zurück zur Einladung</button>
+      </section>
+    </main>
+    <footer>Eine kleine Seite. Nur für dich. <span class="heart">♥</span></footer>
+    <noscript><p>Bitte aktiviere JavaScript, damit du deine Einladung öffnen kannst.</p></noscript>
+  </div>
+</body>
+</html>
