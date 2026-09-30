@@ -95,7 +95,7 @@
       .confetti { display: none; }
     }
   </style>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=2" defer></script>
 </head>
 <body>
   <div class="app">
@@ -105,32 +105,32 @@
       <section class="step" data-step="1" aria-labelledby="title-1">
         <p class="eyebrow">♥ Eine sehr wichtige Frage</p>
         <h1 id="title-1" tabindex="-1"><span>Nancy,</span> gehst du mit mir<br>auf ein Date?</h1>
-        <p class="sub">Nur du und ich. Und ein ziemlich guter Abend.</p>
+        <p class="sub">Sei ehrlich. Es gibt natürlich eine richtige Antwort.<br>Nur so ganz nebenbei.</p>
         <div class="answer-area"><button class="primary" id="yes" data-next="2">JA ✧</button><button id="no">Nein</button></div>
         <p class="tiny" id="shy">Psst … der Nein-Button ist ein bisschen schüchtern.</p>
       </section>
       <section class="step" data-step="2" aria-labelledby="title-2" hidden>
         <div class="sticker" aria-hidden="true">🥳</div>
-        <h2 id="title-2" tabindex="-1">Moment …<br>du sagst wirklich<br>JA?!</h2>
-        <p class="sub">Okay. Ganz cool bleiben, Jens.<br>Hat offensichtlich nicht geklappt.</p>
-        <button class="primary" data-next="3">Lass uns planen <span aria-hidden="true">→</span></button>
+        <h2 id="title-2" tabindex="-1">Warte …<br>du hast wirklich<br>JA gesagt?!</h2>
+        <p class="sub">Ich war schon darauf eingestellt,<br>einen Korb zu kassieren.</p>
+        <button class="primary" data-next="3">Okay, machen wir ein Date draus <span aria-hidden="true">→</span></button>
       </section>
       <section class="step" data-step="3" aria-labelledby="title-3" hidden>
-        <p class="eyebrow">✧ Zeit nur für uns</p>
+        <p class="eyebrow">✧ Save the Date. Also … unser Date.</p>
         <h2 id="title-3" tabindex="-1">Und … wann<br>hast du Zeit?</h2>
-        <p class="sub">Such dir einen Tag und eine Uhrzeit aus.</p>
+        <p class="sub">Such uns einen schönen Moment aus.<br>Ich zähl dann schon mal die Schmetterlinge.</p>
         <form id="date-form">
           <label class="field" for="date">Unser Tag</label><input id="date" name="date" type="date" required aria-describedby="date-error">
           <label class="field" for="time">Unsere Uhrzeit</label><input id="time" name="time" type="time" value="19:00" required aria-describedby="date-error">
           <p class="error" id="date-error" role="alert" hidden>Unser Date liegt noch vor uns – wähl bitte eine Zeit in der Zukunft.</p>
-          <button class="primary" type="submit">Weiter zum Essen <span aria-hidden="true">→</span></button>
+          <button class="primary" type="submit">Und was essen wir? <span aria-hidden="true">→</span></button>
         </form>
         <button class="back" data-next="2">← Zurück</button>
       </section>
       <section class="step" data-step="4" aria-labelledby="title-4" hidden>
-        <p class="eyebrow">✧ Die wirklich wichtigen Details</p>
-        <h2 id="title-4" tabindex="-1">Worauf hast<br>du Appetit?</h2>
-        <p class="sub">Du suchst aus. Ich freu mich auf dich.</p>
+        <p class="eyebrow">✧ Ein bisschen Date-Night-Planung</p>
+        <h2 id="title-4" tabindex="-1">Worauf haben<br>wir Lust?</h2>
+        <p class="sub">Liebe geht durch den Magen.<br>Du bestimmst den Vibe.</p>
         <fieldset class="foods"><legend>Wähle dein Essen</legend>
           <label class="food"><input type="radio" name="food" value="Pizza"><span>🍕 Pizza</span></label>
           <label class="food"><input type="radio" name="food" value="Sushi"><span>🍣 Sushi</span></label>
@@ -139,14 +139,14 @@
           <label class="food"><input type="radio" name="food" value="Tacos"><span>🌮 Tacos</span></label>
           <label class="food"><input type="radio" name="food" value="Ramen"><span>🍜 Ramen</span></label>
         </fieldset>
-        <button class="primary" id="food-next" data-next="5" disabled>Genau darauf <span aria-hidden="true">→</span></button>
+        <button class="primary" id="food-next" data-next="5" disabled>Das ist unser Vibe <span aria-hidden="true">→</span></button>
         <button class="back" data-next="3">← Zurück</button>
       </section>
       <section class="step" data-step="5" aria-labelledby="title-5" hidden>
         <div class="sticker" aria-hidden="true"><span class="heart">♥</span></div>
-        <h2 id="title-5" tabindex="-1">Gut, dass du<br>Ja gesagt hast.<br>Ich hol dich ab.</h2>
+        <h2 id="title-5" tabindex="-1">Zum Glück hast<br>du nicht Nein<br>gesagt.</h2>
         <p class="sub" id="pickup"></p>
-        <p class="sub note">P.S. Andere schreiben einfach eine Nachricht.<br>Ich baue dir eine Website. Ganz normal.</p>
+        <p class="sub note">P.S. Normale Menschen schreiben eine Nachricht.<br>Ich baue dir mal eben eine Website. Für dich.<br>Aber hey, no big deal.</p>
         <button class="primary" data-next="6">Eine Kleinigkeit noch <span aria-hidden="true">→</span></button>
         <button class="back" data-next="4">← Zurück</button>
       </section>
@@ -157,7 +157,8 @@
           <p class="caption">TOTAL OFFIZIELLER PAPIERKRAM.</p>
           <div class="price-row"><span>Ein Date mit mir</span><strong class="price"><del>499 €</del> 1 Lächeln</strong></div>
           <div class="plan" id="receipt-plan"></div>
-          <p class="tiny">Zahlbar in Lachen, guter Gesellschaft und der Erlaubnis, die Playlist auszusuchen.</p>
+          <p class="tiny">Einmalig. Unbezahlbar. Absolut worth it.</p>
+          <p class="tiny">Zahlbar in gemeinsamem Lachen, deiner Gesellschaft und dem Versprechen, mich die Playlist aussuchen zu lassen.</p>
           <p class="tiny">Keine echte Zahlung. Kein echter Vertrag.<br>Nur ein ziemlich ernst gemeintes Date.</p>
         </div>
         <button class="primary" id="confirm">Mit einem Lächeln bezahlen ♥</button>
@@ -165,7 +166,7 @@
       </section>
       <section class="step success" data-step="7" aria-labelledby="title-7" hidden>
         <div class="sticker" aria-hidden="true"><span class="heart">♥</span></div>
-        <p class="eyebrow">Zahlung: ein Lächeln. Erhalten.</p>
+        <p class="eyebrow">Lächeln verbucht. Schmetterlinge unterwegs.</p>
         <h2 id="title-7" tabindex="-1">Wir haben<br>ein Date, Nancy.</h2>
         <div class="plan" id="final-plan"></div>
         <a class="button primary" id="whatsapp" href="https://wa.me/" target="_blank" rel="noopener noreferrer">Jens Bescheid sagen <span aria-hidden="true">↗</span></a>
@@ -182,7 +183,7 @@
         <button class="primary" data-next="1">Zurück zur Einladung</button>
       </section>
     </main>
-    <footer>Eine kleine Seite. Nur für dich. <span class="heart">♥</span></footer>
+    <footer>Hier blüht uns ein Date. <span class="heart">♥</span></footer>
     <noscript><p>Bitte aktiviere JavaScript, damit du deine Einladung öffnen kannst.</p></noscript>
   </div>
 </body>

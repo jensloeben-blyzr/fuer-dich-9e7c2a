@@ -21,3 +21,4 @@ Statische Dateien auf GitHub Pages, ohne laufenden lokalen Server. Keine Zugangs
 - Persönliche Einladung für Nancy und Jens erstellt; Datum und Uhrzeit werden auf zukünftige, tatsächlich existierende lokale Termine geprüft.
 - Handy-Layout, Tastaturbedienung, reduzierte Animationen und manuelles Kopieren bei gesperrter Zwischenablage berücksichtigt.
 - Abholen-Uhrzeit und Date-Vertrag übernehmen Nancys Auswahl, nicht die festen Beispielwerte aus dem Video.
+- Copy näher an den englischen Humor der Vorlage gebracht: Korb kassieren, Date-Night-Vibe, selbstironisches „no big deal“ und eine kleine Portion Schmetterlinge; Ablauf unverändert.

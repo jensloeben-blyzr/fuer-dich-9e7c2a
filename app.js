@@ -49,7 +49,7 @@ function initInvitation() {
     $('.progress').style.width = `${progress / 6 * 100}%`;
     $('.track').setAttribute('aria-valuenow', progress);
     $(`#title-${step}`).focus({ preventScroll: true });
-    if (step === 5) $('#pickup').textContent = `Um ${time.value} Uhr. Du bringst dein Lächeln mit, den Rest kriegen wir hin.`;
+    if (step === 5) $('#pickup').textContent = `Sei um ${time.value} Uhr ready. Ich hol dich ab.`;
     if (step === 6 || step === 7) {
       const plan = planText(date.value, time.value, food());
       $('#receipt-plan').textContent = plan;
